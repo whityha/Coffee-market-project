@@ -35,7 +35,7 @@ input[type=number]::-webkit-outer-spin-button
     font-size: 24px
     font-weight: $font_bold
     color: $color_orange
-    padding-left: 60px
+    padding-left: 50px
     padding-top: 15px
     background: no-repeat left center url('images/logo-coffee.svg')
     background-size: auto 100%
@@ -95,8 +95,11 @@ header
             border-radius: 5px
             color: $color_white
             margin-bottom: 50px
+            transition: 0.1s
             &:hover
                 cursor: pointer
+                background-color: $color_white
+                color: $color-orange
 .offers
     margin-top: 140px
     font: $font_semibold 18px $font_josef
@@ -176,12 +179,17 @@ header
                                     height: 1px
                                     background-color: $color_black
                     .get-delivery                        
-                        padding: 15px 30px
+                        padding: 10px 30px
                         border-radius: 5px
                         background-color: $color_orange
                         color: $color_white
                         font-weight: $font_bold
+                        border: 2px solid $color_orange
                         line-height: 27px
+                        transition: 0.1s
+                        &:hover
+                            background-color: white
+                            color: $color-orange
 .gallery
     margin-top: 140px
     font: $font_semibold 18px $font_open
@@ -195,7 +203,7 @@ header
         line-height: 29px
         opacity: .7
     &-images
-        margin-top: 60px
+        margin-top: 60px        
         div
             overflow: hidden
             img
@@ -221,7 +229,8 @@ header
         background-color: transparent
 .contacts            
     margin-top: 140px
-    background-color: $color-black
+    background: no-repeat right bottom / auto 100% url(images/coffee-contact-bg.png), no-repeat left top / auto 90% url(images/bg-1.png)
+    background-color: $color_brown
     .container
         .follow
             position: relative
@@ -256,8 +265,10 @@ header
             padding-left: 40px
         .phone
             margin-top: 60px
+            background: no-repeat 20% center / auto 100% url(images/phone.svg)
         .email
             margin-top: 25px
+            background: no-repeat 5% center / auto 85% url(images/mail.svg)
         .icons-lists
             display: flex
             justify-content: space-between
@@ -292,14 +303,14 @@ header
         margin-top: 20px
         font: $font_normal 18px $font_open
     &-cards
-        margin-top: 60px        
+        margin-top: 60px 
         .new-card
-            border-radius: 20px
-            box-shadow: 10px 30px 80px 0px rgba(0, 0, 0, .4)
             text-align: left
+            box-shadow: 10px 30px 30px rgba(0,0,0,.4)
+            border-radius: 21px
             img
                 width: 100%
-                border-radius: 21px 21px 0px 0px
+                border-radius: 21px 21px 10px 10px
             .news-name
                 font: $font_semibold 32px $font_josef
                 margin-left: 30px
@@ -310,11 +321,28 @@ header
                 margin-top: 10px
             .learn-more
                 display: inline-block
+                position: relative
                 margin-left: 30px
                 color: $color_orange
                 font: $font_normal 16px $font_open
                 margin-top: 20px
                 margin-bottom: 30px
+                &::after
+                    content: ''
+                    position: absolute
+                    width: 0%
+                    height: 2px
+                    background-color: $color-orange
+                    left: 0
+                    bottom: -5px
+                    transition: .2s
+                    transform: translateY(2px)
+                    transform-origin: left
+                    opacity: 0
+                &:hover::after
+                    width: 120%
+                    transform: translateY(0px)
+                    opacity: 1
 footer
     background-color: $color_brown
     color: $color_white
