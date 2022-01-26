@@ -9,6 +9,7 @@ $font_bold: 700
 $font_semibold: 600
 $font_normal: 400
 
+    
 *
     box-sizing: border-box
     padding: 0
@@ -314,20 +315,39 @@ header
             .icons-lists
                 +icons-list
 .news      
-    text-align: center         
+    text-align: center   
     .update-news
         margin-top: 100px
         font: $font_semibold 43px $font_josef
         line-height: 56px
     &-descr
+        opacity: .7
         margin-top: 20px
         font: $font_normal 18px $font_open
     &-cards
-        margin-top: 60px 
-        .new-card
-            text-align: left
-            box-shadow: 10px 30px 30px rgba(0,0,0,.4)
-            border-radius: 21px
+        margin-top: 60px        
+        .new-card            
+            perspective: 1000
+            .rotate                
+                transform: rotateY(180deg)
+                box-shadow: -10px 30px 30px rgba(0,0,0,.4) !important
+            .flipper
+                text-align: left
+                box-shadow: 10px 30px 30px rgba(0,0,0,.4)
+                border-radius: 21px
+                transition: .6s
+                transform-style: preserve-3d
+                position: relative
+                .front, .back 
+                    backface-visibility: hidden
+                    position: absolute
+                    top: 0
+                    left: 0
+                .front       
+                    position: relative    
+                    z-index: 2     
+                .back
+                    transform: rotateY(180deg)
             img
                 width: 100%
                 border-radius: 21px 21px 10px 10px
@@ -347,14 +367,15 @@ header
                 font: $font_normal 16px $font_open
                 margin-top: 20px
                 margin-bottom: 30px
+                cursor: pointer
                 &::after
-                    content: ''
+                    content: '\f122'
                     position: absolute
-                    bottom: -2px
-                    right: -20px
+                    font-family: 'Font Awesome 5 Free', 'Font Awesome 5 Brands'
+                    font-weight: 900
+                    transform: rotate(140deg)                    
                     height: 100%
                     width: 25%
-                    background: no-repeat left center / auto 100% url(images/arrow.png)
                 &::before
                     content: ''
                     position: absolute
@@ -405,6 +426,7 @@ footer
             a:hover
                 color: $color_orange
         .rights
+            opacity: .8
             margin-top: 50px
             padding-top: 25px
             margin-bottom: 50px
